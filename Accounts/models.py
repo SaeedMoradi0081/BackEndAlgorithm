@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from rest_framework.serializers import ModelSerializer
@@ -8,6 +9,8 @@ class User(AbstractUser):
     nationality_code = models.CharField(max_length=12)
     phone_number = models.CharField(max_length=12)
     picture = models.CharField(max_length=255,default='')
+
+
 
 
     def __str__(self):
