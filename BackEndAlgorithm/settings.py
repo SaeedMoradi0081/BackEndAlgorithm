@@ -100,11 +100,25 @@ WSGI_APPLICATION = 'BackEndAlgorithm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+import os
+MYSQL_DB_HOST ='logan.liara.cloud'
+MYSQL_DB_PORT='3306'
+MYSQL_DB_PASS='7jPNgwRsPUVVuBiJKZBxhERo'
+MYSQL_DB_USER='root'
+MYSQL_DB_NAME='zealous_mclaren'
+
+
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv("MYSQL_DB_NAME"),
+        'USER': os.getenv("MYSQL_DB_USER"),
+        'PASSWORD': os.getenv("MYSQL_DB_PASS"),
+        'HOST': os.getenv("MYSQL_DB_HOST"),
+        'PORT': os.getenv("MYSQL_DB_PORT"),
+
     }
 }
 
